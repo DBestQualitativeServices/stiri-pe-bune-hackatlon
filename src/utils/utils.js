@@ -54,14 +54,22 @@ export const getArticleDate = (date) => {
 
 export const getCategoryColor = (category) => {
     const colors = {
-        categoria_0: "#65a30d",
-        categoria_1: "#06b6d4",
-        categoria_2: "#9333ea",
-        categoria_3: "#e11d48",
-        categoria_4: "#ea580c",
-        categoria_5: "#14b8a6",
+        politica: "#65a30d",
+        economie: "#06b6d4",
+        crima: "#9333ea",
+        sport: "#e11d48",
+        monden: "#ea580c",
+        gastronomie: "#14b8a6",
+        extern: "#22c55e",
+        meteo: "#22615e",
+        gospodarie: "#06b6d4",
+        cultura: "#9333ea",
+        social: "#22c55e",
+        religie: "#06b6d4",
+        sanatate: "#06b6d4"
+
     };
-    return category?colors[category?.toLowerCase()] : "#64748b";
+    return category ? colors[category?.toLowerCase()] : "#64748b";
 };
 
 const diacritics = {

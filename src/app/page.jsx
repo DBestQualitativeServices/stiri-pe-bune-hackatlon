@@ -6,7 +6,7 @@ import SecondaryGrid from "../components/layout/secondary-grid";
 import MainWrapper from "../components/layout/main-wrapper";
 
 export default async function Page() {
-    const paginated_articles = await fetchArticlesByPage(1, 30)
+    const paginated_articles = await fetchArticlesByPage(1, 50)
     if (paginated_articles.error || Object.keys(paginated_articles.articles).length === 0) {
         return notFound()
     }

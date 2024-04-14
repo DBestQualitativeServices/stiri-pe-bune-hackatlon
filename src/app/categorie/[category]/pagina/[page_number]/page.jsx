@@ -14,7 +14,7 @@ const Page = async ({params})=>{
     if (categories_list.error || !categories_list.includes(category)) return redirect("/")
     if (!isPositiveInteger(page_number) || Number(page_number) < 1) return redirect(`/categorie/${category}`)
 
-    const paginated_category_articles = await fetchArticlesByPage(Number(page_number), 30, category)
+    const paginated_category_articles = await fetchArticlesByPage(Number(page_number), 50, category)
     if (paginated_category_articles.error) {
         if (Number(page_number) > 1) return redirect(`/categorie/${category}`)
         return redirect("/")
@@ -24,7 +24,7 @@ const Page = async ({params})=>{
         return redirect("/")
     }
 
-    const latest_paginated_articles = await fetchArticlesByPage(1, 20, category)
+    const latest_paginated_articles = await fetchArticlesByPage(1, 50, category)
 
     return (
         <MainWrapper>

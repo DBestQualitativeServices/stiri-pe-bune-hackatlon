@@ -2,7 +2,7 @@ import RoundedBorderBox from "../layout/rounded-border-box";
 import {getArticleDate} from "../../utils/utils";
 
 const SmallArticleCard = ({article}) => {
-    const {title, description, category, date_uploaded} = article
+    const {title, description, category, date_uploaded, } = article
 
     return (
         <div className={"flex flex-1 flex-col p-5 space-y-2.5"}>

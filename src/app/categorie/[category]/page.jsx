@@ -10,10 +10,10 @@ const Page = async ({params}) => {
     const categories_list = await fetchCategories()
     if (categories_list.error || !categories_list.includes(category)) return redirect("/")
 
-    const paginated_articles = await fetchArticlesByPage(1, 30, category)
+    const paginated_articles = await fetchArticlesByPage(1, 50, category)
     if (paginated_articles.error || Object.keys(paginated_articles.articles).length === 0) return redirect("/")
 
-    const latest_paginated_articles = await fetchArticlesByPage(1, 20, category)
+    const latest_paginated_articles = await fetchArticlesByPage(1, 50, category)
 
     return (
         <MainWrapper>

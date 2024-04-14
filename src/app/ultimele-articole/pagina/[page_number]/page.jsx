@@ -10,13 +10,13 @@ const Page = async ({params}) => {
     const {page_number} = params
     if (!isPositiveInteger(page_number) || Number(page_number) < 1)  return redirect(`/`)
 
-    const paginated_articles = await fetchArticlesByPage(Number(page_number), 30)
+    const paginated_articles = await fetchArticlesByPage(Number(page_number), 50)
     if (paginated_articles.error) return redirect("/")
     if (Object.keys(paginated_articles.articles).length === 0) {
         if (Number(page_number) > 1) return redirect(`/`)
         return notFound()
     }
-    const latest_paginated_articles = await fetchArticlesByPage(1, 20)
+    const latest_paginated_articles = await fetchArticlesByPage(1, 40)
 
     return (
         <MainWrapper>

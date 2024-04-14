@@ -14,12 +14,12 @@ const ArticlesGrid = ({paginated_articles, category}) => {
                 <Underline category={category}/>
             </h1>
             {Object.values(paginated_articles.articles).map((article, index) => {
-                const styles = index === 0 || index % 11 === 0 ? "col-span-2 lg:h-[180px]" : "col-span-2 md:col-span-1"
-                return (
-                    <div key={index} className={`${styles} h-[220px] flex rounded-xl bg-gray-50 shadow-2xl`}>
-                        <ArticleCard article={article} withContent={true}/>
-                    </div>
-                )
+                const styles = index === 0 || index % 11 === 0 ? "col-span-2 lg:h-[240px]" : "col-span-2 md:col-span-1"
+                    return (
+                        <div key={index} className={`${styles} h-[290px] flex rounded-xl bg-gray-50 shadow-2xl`}>
+                            <ArticleCard article={article} withContent={true}/>
+                        </div>
+                    )
             })}
             <div className={"flex w-full col-span-2 justify-center pt-5 pb-10"}>
                 <Pagination currentPage={paginated_articles.pagination.current_page}

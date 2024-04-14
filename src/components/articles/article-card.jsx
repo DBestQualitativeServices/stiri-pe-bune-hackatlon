@@ -1,13 +1,14 @@
-import {getArticleDate, sanitizeUrl} from "../../utils/utils";
+import {getArticleDate} from "../../utils/utils";
 import RoundedBorderBox from "../layout/rounded-border-box";
 import Link from "next/link";
 
 const ArticleCard = ({article, withContent}) => {
-    const {id, title, content, category, latest_version_date_uploaded} = article
+    const {title, content, category, latest_version_date_uploaded, all_versions_urls} = article
+
+    const parsedUrls = JSON.parse(all_versions_urls)
 
     return (
-        <Link href={`/articol/${sanitizeUrl(title)}-${id}`}
-              className={"flex flex-1 flex-col p-5 space-y-2.5"}>
+        <div className={"flex flex-1 flex-col p-5 space-y-2.5"}>
             <section className={"flex flex-row space-x-2.5"}>
                 {latest_version_date_uploaded && (
                     <RoundedBorderBox category={category}>
@@ -24,7 +25,16 @@ const ArticleCard = ({article, withContent}) => {
             {withContent && (
                 <span className={"line-clamp-3"}>{content}</span>
             )}
-        </Link>
+            {parsedUrls && parsedUrls.length > 0 && (
+                <div className={"flex italic flex-col"}>
+                    <span>{parsedUrls.length > 1 ? "Surse" : "Sursa"}</span>
+                    {parsedUrls.map((url) => (
+                            <a href={url} target={"_blank"} className={"line-clamp-1"}>{url}</a>
+                        )
+                    )}
+                </div>
+            )}
+        </div>
     )
 }
 

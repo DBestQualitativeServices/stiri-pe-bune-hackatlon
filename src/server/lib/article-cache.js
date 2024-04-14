@@ -5,7 +5,7 @@ import {Mutex} from 'async-mutex';
 
 const articles_cache = new LRUCache({
     max: 1000,
-    ttl: 300000 // in milliseconds
+    ttl: 300000
 });
 const articles_cache_mutex = new Mutex();
 
